@@ -39,7 +39,7 @@ namespace WpfApp16
                 while(licznik <= 4 )
                 {
                     haslo[licznik] = duze[random.Next(duze.Length -1)].ToString();
-                    licznik++;
+                    licznik++;//
                     haslo[licznik] = male[random.Next(male.Length)].ToString();
                     licznik++;
                     haslo[licznik] = cyfryy[random.Next(cyfryy.Length)].ToString();
