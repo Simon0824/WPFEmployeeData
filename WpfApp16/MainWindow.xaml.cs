@@ -1,4 +1,5 @@
-﻿using System.Reflection.Emit;
+﻿using Microsoft.VisualBasic;
+using System.Reflection.Emit;
 using System.Security.RightsManagement;
 using System.Text;
 using System.Windows;
@@ -22,11 +23,13 @@ namespace WpfApp16
         {
             InitializeComponent();
         }
-        public static string duze = "QWERTYUIOPASDFGHJKLZXCVBNM";
-        public static string male = "qwertyuiopasdfghjklzxcvbnm";
+        public static string duzeimale = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
         public static string cyfryy = "0123456789";
         public static string specjalnee = "!@#$%^&*()_+-=";
-        public static string MaleDuze = duze.Concat(male).ToString();
+        public static string MaleDuzeSpecjalneCyfry = duzeimale.Concat(cyfryy).Concat(specjalnee).ToString();
+        public static string MaleDuzeSpecjalne = duzeimale.Concat(specjalnee).ToString();
+        public static string MaleDuzeCyfry = duzeimale.Concat(cyfryy).ToString();
+        public static string SpecjalneCyfry = cyfryy.Concat(specjalnee).ToString();
         public static int znaczki;
         string[] haslo = new string[znaczki];
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -37,80 +40,62 @@ namespace WpfApp16
         private void generuj_Click(object sender, RoutedEventArgs e)
         {
             znaczki = int.Parse(iloscznakow.Text);
-            int licznik = 0;
             haslo = new string[znaczki];
             Random random = new Random();
             if (cyfry.IsChecked == true && maleiduze.IsChecked == true && specjalne.IsChecked == true)
             {
-                while(licznik < znaczki)
+                for(int i = 0; i < znaczki; i++)
                 {
-                    haslo[licznik] = duze[random.Next(duze.Length)].ToString();
-                    licznik++;
-                    haslo[licznik] = male[random.Next(male.Length)].ToString();
-                    licznik++;
-                    haslo[licznik] = cyfryy[random.Next(cyfryy.Length)].ToString();
-                    licznik++;
-                    haslo[licznik] = specjalnee[random.Next(specjalnee.Length)].ToString();
-                    licznik++;
+                    int dlugosc = MaleDuzeSpecjalneCyfry.Length;
+                    haslo[i] = MaleDuzeSpecjalneCyfry[random.Next(0, dlugosc)].ToString();
                 }
             } 
-            else if (cyfry.IsChecked == true && maleiduze.IsChecked == true)
+            else if (cyfry.IsChecked == true && maleiduze.IsChecked == true && specjalne.IsChecked == false)
             {
-                while (licznik < znaczki)
+                for (int i = 0; i < znaczki; i++)
                 {
-                    haslo[licznik] = duze[random.Next(duze.Length)].ToString();
-                    licznik++;
-                    haslo[licznik] = male[random.Next(male.Length)].ToString();
-                    licznik++;
-                    haslo[licznik] = cyfryy[random.Next(cyfryy.Length)].ToString();
-                    licznik++;
+                    int dlugosc = MaleDuzeCyfry.Length;
+                    haslo[i] = MaleDuzeCyfry[random.Next(0, dlugosc)].ToString();
                 }
             }
-            else if (cyfry.IsChecked == true && specjalne.IsChecked == true)
+            else if (cyfry.IsChecked == true && specjalne.IsChecked == true && maleiduze.IsChecked == false)
             {
-                while (licznik < znaczki)
+                for (int i = 0; i < znaczki; i++)
                 {
-                    haslo[licznik] = specjalnee[random.Next(specjalnee.Length)].ToString();
-                    licznik++;
-                    haslo[licznik] = cyfryy[random.Next(cyfryy.Length)].ToString();
-                    licznik++;
+                    int dlugosc = SpecjalneCyfry.Length;
+                    haslo[i] = SpecjalneCyfry[random.Next(0, dlugosc)].ToString();
                 }
             }
-            else if (maleiduze.IsChecked == true && specjalne.IsChecked == true)
+            else if (maleiduze.IsChecked == true && specjalne.IsChecked == true && cyfry.IsChecked == false)
             {
-                while (licznik < znaczki)
+                for (int i = 0; i < znaczki; i++)
                 {
-                    haslo[licznik] = specjalnee[random.Next(specjalnee.Length)].ToString();
-                    licznik++;
-                    haslo[licznik] = male[random.Next(male.Length)].ToString();
-                    licznik++;
-                    haslo[licznik] = duze[random.Next(duze.Length)].ToString();
-                    licznik++;
+                    int dlugosc = MaleDuzeSpecjalne.Length;
+                    haslo[i] = MaleDuzeSpecjalne[random.Next(0, dlugosc)].ToString();
                 }
             }
             else if (maleiduze.IsChecked == true && specjalne.IsChecked == false && cyfry.IsChecked == false)
             {
-                licznik = 0;
-                int dlugosc = MaleDuze.Length;
+                int dlugosc = duzeimale.Length;
                 for(int i = 0; i < znaczki; i++)
                 {
-                    haslo[i] = MaleDuze[random.Next(0, dlugosc)].ToString();
+                    haslo[i] = duzeimale[random.Next(0, dlugosc)].ToString();
                 }
             }
-            else if (specjalne.IsChecked == true)
+            else if (specjalne.IsChecked == true && maleiduze.IsChecked == false && cyfry.IsChecked == false)
             {
-                while (licznik < 4)
+                for (int i = 0; i < znaczki; i++)
                 {
-                    haslo[licznik] = specjalnee[random.Next(specjalnee.Length)].ToString();
-                    licznik++;
+                    int dlugosc = specjalnee.Length;
+                    haslo[i] = specjalnee[random.Next(0, dlugosc)].ToString();
                 }
             }
-            else if (cyfry.IsChecked == true)
+            else if (cyfry.IsChecked == true && maleiduze.IsChecked == false && specjalne.IsChecked == false)
             {
-                while (licznik < 4)
+                for (int i = 0; i < znaczki; i++)
                 {
-                    haslo[licznik] = cyfryy[random.Next(cyfryy.Length)].ToString();
-                    licznik++;
+                    int dlugosc = cyfryy.Length;
+                    haslo[i] = cyfryy[random.Next(0, dlugosc)].ToString();
                 }
             }
         }
