@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="LightSteelBlue">
-        <GroupBox Header="Dane pracownika" HorizontalAlignment="Left" Margin="54,46,0,142" Width="310">
+        <GroupBox Header="Dane pracownika" HorizontalAlignment="Left" VerticalAlignment="Top" Width="310" Height="250" Margin="56,44,0,0" >
         </GroupBox>
         <Label Content="Imię" HorizontalAlignment="Left" Margin="83,83,0,0" VerticalAlignment="Top"/>
         <TextBox Name="imie" HorizontalAlignment="Left" Margin="197,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
@@ -20,13 +20,13 @@
             <ComboBoxItem Content="Młodszy programista"/>
             <ComboBoxItem Content="Tester"/>
         </ComboBox>
-        <Button Background="SteelBlue" BorderBrush="White" Foreground="White" Content="Zatwierdź" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="200" Height="30" Margin="0,351,0,0" Click="Button_Click"/>
-        <GroupBox Header="Generowanie hasła" HorizontalAlignment="Right" Margin="0,46,54,142" Width="310"/>
-        <TextBox Name="iloscznakow" HorizontalAlignment="Left" Margin="567,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <Label Content="Ile znaków?" HorizontalAlignment="Left" Margin="483,83,0,0" VerticalAlignment="Top"/>
-        <CheckBox Name="maleiduze" Content="Małe i wielkie litery" HorizontalAlignment="Left" Margin="483,138,0,0" VerticalAlignment="Top"/>
-        <CheckBox Name="cyfry" Content="Cyfry" HorizontalAlignment="Left" Margin="483,166,0,0" VerticalAlignment="Top"/>
-        <CheckBox Name="specjalne" Content="Znaki specjalne" HorizontalAlignment="Left" Margin="483,193,0,0" VerticalAlignment="Top"/>
-        <Button BorderBrush="White" Background="SteelBlue" Foreground="White"   Name="generuj" Content="Generuj hasło"  Width="80" HorizontalAlignment="Left" Margin="551,249,0,0" VerticalAlignment="Top" Click="generuj_Click"/>
+        <Button Background="SteelBlue" BorderBrush="White" Foreground="White" Content="Zatwierdź" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="200" Height="30" Click="Button_Click" Margin="0,363,0,0"/>
+        <GroupBox Header="Generowanie hasła" HorizontalAlignment="Right" VerticalAlignment="Top"  Width="310" Height="250" Margin="0,44,41,0" />
+        <TextBox Name="iloscznakow" HorizontalAlignment="Right" Margin="0,83,88,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
+        <Label Content="Ile znaków?" HorizontalAlignment="Right" Margin="0,79,258,0" VerticalAlignment="Top"/>
+        <CheckBox Name="maleiduze" Content="Małe i wielkie litery" HorizontalAlignment="Right" Margin="0,134,208,0" VerticalAlignment="Top"/>
+        <CheckBox Name="cyfry" Content="Cyfry" HorizontalAlignment="Right" Margin="0,161,282,0" VerticalAlignment="Top"/>
+        <CheckBox Name="specjalne" Content="Znaki specjalne" HorizontalAlignment="Right" Margin="0,193,228,0" VerticalAlignment="Top"/>
+        <Button BorderBrush="White" Background="SteelBlue" Foreground="White"   Name="generuj" Content="Generuj hasło"  Width="80" HorizontalAlignment="Right" Margin="0,248,169,0" VerticalAlignment="Top" Click="generuj_Click"/>
     </Grid>
 </Window>
